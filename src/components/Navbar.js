@@ -52,7 +52,7 @@ export default function Navbar({ settings }) {
         </Link>
 
         {/* Links de escritorio */}
-        <ul className="hidden items-center gap-7 md:flex">
+        <ul className="hidden items-center gap-5 lg:flex">
           {navLinks.map((link) => {
             const active = pathname === link.href;
             return (
@@ -78,7 +78,7 @@ export default function Navbar({ settings }) {
           href={wa}
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden rounded-full bg-blood px-5 py-2 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-blood-dark md:inline-block"
+          className="hidden rounded-full bg-blood px-5 py-2 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-blood-dark lg:inline-block"
         >
           Agenda tu cita
         </a>
@@ -86,7 +86,7 @@ export default function Navbar({ settings }) {
         {/* Botón menú móvil */}
         <button
           onClick={() => setOpen((v) => !v)}
-          className="text-bone md:hidden"
+          className="text-bone lg:hidden"
           aria-label="Abrir menú"
         >
           {open ? <FiX size={28} /> : <FiMenu size={28} />}
@@ -101,7 +101,7 @@ export default function Navbar({ settings }) {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="overflow-hidden border-t border-carbon-light bg-ink md:hidden"
+            className="overflow-hidden border-t border-carbon-light bg-ink lg:hidden"
           >
             <ul className="flex flex-col px-5 py-4">
               {navLinks.map((link) => {

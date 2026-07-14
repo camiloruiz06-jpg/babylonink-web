@@ -59,6 +59,20 @@ export const getTeam = cache(async () => {
   return t?.length ? t : staticTeam;
 });
 
+// ---- Catálogo (PDF) ----
+export const getCatalog = cache(async () => {
+  const c = await sanityFetch(
+    `*[_type == "catalog"][0]{ "pdfUrl": pdf.asset->url, title }`,
+    {},
+    null
+  );
+  return {
+    // Si no han subido PDF en Sanity, usa el que ya está en la web
+    pdfUrl: c?.pdfUrl || "/catalogo/babylon-catalogo.pdf",
+    title: c?.title || "Catálogo de piercings",
+  };
+});
+
 // ---- Galería (URLs de publicaciones de Instagram) ----
 export const getGalleryPosts = cache(async () => {
   const g = await sanityFetch(

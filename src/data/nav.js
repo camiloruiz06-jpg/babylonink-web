@@ -6,8 +6,9 @@ export const navLinks = [
   { href: "/piercings", label: "Piercings" },
   { href: "/equipo", label: "Equipo" },
   { href: "/galeria", label: "Galería" },
+  { href: "/catalogo", label: "Catálogo" },
   { href: "/contacto", label: "Contacto" },
 ];
 
-// Enlaces extra que aparecen SOLO en el footer (para no saturar el menú).
-export const footerExtraLinks = [{ href: "/catalogo", label: "Catálogo" }];
+// (Sin enlaces extra: Catálogo ya está en el menú)
+export const footerExtraLinks = [];

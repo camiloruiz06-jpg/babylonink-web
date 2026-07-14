@@ -155,6 +155,21 @@ async function run() {
   }
   console.log("✓ Galería:", posts.length, "publicaciones");
 
+  // 5) Catálogo (PDF actual)
+  const pdfBuf = readFileSync(
+    join(root, "public", "catalogo", "babylon-catalogo.pdf")
+  );
+  const pdfAsset = await client.assets.upload("file", pdfBuf, {
+    filename: "babylon-catalogo.pdf",
+  });
+  await client.createOrReplace({
+    _id: "catalog",
+    _type: "catalog",
+    title: "Catálogo de piercings",
+    pdf: { _type: "file", asset: { _type: "reference", _ref: pdfAsset._id } },
+  });
+  console.log("✓ Catálogo (PDF)");
+
   console.log("\n¡Migración completa! 🎉");
 }
 

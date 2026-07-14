@@ -15,10 +15,14 @@ export const deskStructure = (S) =>
         .title("💲 Precios")
         .id("priceList")
         .child(S.document().schemaType("priceList").documentId("priceList")),
+      S.listItem()
+        .title("📖 Catálogo (PDF)")
+        .id("catalog")
+        .child(S.document().schemaType("catalog").documentId("catalog")),
       S.divider(),
       S.documentTypeListItem("teamMember").title("👥 Equipo"),
       S.documentTypeListItem("galleryItem").title("🖼️ Galería"),
     ]);
 
 // Documentos únicos (no se pueden crear/duplicar/borrar)
-export const singletonTypes = new Set(["siteSettings", "priceList"]);
+export const singletonTypes = new Set(["siteSettings", "priceList", "catalog"]);
