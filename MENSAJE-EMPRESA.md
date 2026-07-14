@@ -23,6 +23,9 @@ Y editar es **muy fácil**: para darles acceso solo necesito su **correo**, y de
 ahí ustedes cambian lo que quieran o simplemente **pegan los enlaces** de sus
 publicaciones de Instagram para que aparezcan en la galería. Nada complicado 🙂
 
+Y si prefieren no encargarse de nada, también **puedo manejarla yo al 100 %**:
+ustedes solo me dicen qué cambiar y yo lo actualizo.
+
 Me encantaría que le echen un vistazo y me digan con toda confianza qué les parece.
 Si les gusta y les interesa, con gusto podemos hablar para **entregársela y que sea
 de ustedes**: les explico cómo funciona, les paso un **manual de uso** y los
@@ -47,8 +50,9 @@ su Instagram. Aún no está publicada; quería mostrársela a ver qué les parec
 
 Trae panel para que ustedes mismos editen textos, precios y fotos sin saber de
 programación. Editar es facilísimo: solo necesito su **correo** para darles acceso,
-y ustedes solo **pegan los enlaces** de sus publicaciones y listo. Si les gusta, se
-las explico, les paso un manual y podemos hablar para que sea de ustedes. Sin
+y ustedes solo **pegan los enlaces** de sus publicaciones y listo. Y si prefieren,
+**yo la manejo al 100 %** y ustedes solo me dicen qué cambiar. Si les gusta, se las
+explico, les paso un manual y podemos hablar para que sea de ustedes. Sin
 compromiso 🙂
 
 ¿Les puedo enviar el enlace para que la vean?
