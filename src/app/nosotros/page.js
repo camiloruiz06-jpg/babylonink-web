@@ -4,17 +4,8 @@ import Ornament from "@/components/Ornament";
 import Image from "next/image";
 import { FaWhatsapp } from "react-icons/fa";
 import { FiMapPin, FiClock } from "react-icons/fi";
-import { site, whatsappLink } from "@/data/site";
-
-// Mapa e indicaciones (Google Maps)
-const mapSrc =
-  site.map.embedSrc ||
-  `https://www.google.com/maps?q=${encodeURIComponent(
-    site.map.query
-  )}&output=embed`;
-const directionsLink = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
-  site.map.query
-)}`;
+import { buildWhatsappLink } from "@/data/site";
+import { getSiteSettings } from "@/sanity/content";
 
 const lugarFotos = [
   "/lugar/lugar-1.jpg",
@@ -55,7 +46,17 @@ const values = [
   },
 ];
 
-export default function NosotrosPage() {
+export default async function NosotrosPage() {
+  const settings = await getSiteSettings();
+  const wa = buildWhatsappLink(settings.contact.whatsapp);
+  const mapSrc =
+    settings.map.embedSrc ||
+    `https://www.google.com/maps?q=${encodeURIComponent(
+      settings.map.query
+    )}&output=embed`;
+  const directionsLink = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+    settings.map.query
+  )}`;
   return (
     <>
       <PageHeader
@@ -176,11 +177,11 @@ export default function NosotrosPage() {
                 <h3 className="text-2xl text-bone">Dónde estamos</h3>
                 <p className="mt-4 flex items-start gap-2 text-ash">
                   <FiMapPin className="mt-0.5 shrink-0 text-blood" />
-                  {site.contact.address}
+                  {settings.contact.address}
                 </p>
                 <p className="mt-2 flex items-start gap-2 text-ash">
                   <FiClock className="mt-0.5 shrink-0 text-blood" />
-                  {site.contact.hours}
+                  {settings.contact.hours}
                 </p>
                 <a
                   href={directionsLink}
@@ -217,7 +218,7 @@ export default function NosotrosPage() {
               Escribe tu historia con nosotros
             </h2>
             <a
-              href={whatsappLink()}
+              href={wa}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-6 inline-flex items-center gap-2 rounded-full bg-blood px-8 py-4 font-bold uppercase tracking-wide text-white transition-colors hover:bg-blood-dark"

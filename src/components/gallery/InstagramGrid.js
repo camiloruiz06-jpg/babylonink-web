@@ -6,7 +6,10 @@ import { FaInstagram } from "react-icons/fa";
 import { instagramPosts, beholdFeedId } from "@/data/gallery";
 import { site } from "@/data/site";
 
-export default function InstagramGrid() {
+export default function InstagramGrid({ posts }) {
+  // Usa las publicaciones que llegan por props (Sanity) o, si no, las del archivo
+  const list = posts?.length ? posts : instagramPosts;
+
   // Procesa los embeds manuales cuando ya cargó el script de Instagram
   useEffect(() => {
     if (!beholdFeedId && window?.instgrm) {
@@ -30,7 +33,7 @@ export default function InstagramGrid() {
   }
 
   // ---- MODO 2: Publicaciones manuales embebidas ----
-  if (instagramPosts.length > 0) {
+  if (list.length > 0) {
     return (
       <>
         <Script
@@ -39,7 +42,7 @@ export default function InstagramGrid() {
           onLoad={() => window?.instgrm?.Embeds?.process()}
         />
         <div className="columns-1 gap-5 sm:columns-2 lg:columns-3 [&>*]:mb-5">
-          {instagramPosts.map((url) => (
+          {list.map((url) => (
             <blockquote
               key={url}
               className="instagram-media"

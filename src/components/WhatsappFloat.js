@@ -2,12 +2,15 @@
 
 import { motion } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
-import { whatsappLink } from "@/data/site";
+import { site, buildWhatsappLink } from "@/data/site";
 
-export default function WhatsappFloat() {
+export default function WhatsappFloat({ settings }) {
+  const wa = buildWhatsappLink(
+    settings?.contact?.whatsapp ?? site.contact.whatsapp
+  );
   return (
     <motion.a
-      href={whatsappLink()}
+      href={wa}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Escríbenos por WhatsApp"

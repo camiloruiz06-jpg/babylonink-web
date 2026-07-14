@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
-import { whatsappLink } from "@/data/site";
+import { site, buildWhatsappLink } from "@/data/site";
 
-export default function WhatsappForm() {
+export default function WhatsappForm({ settings }) {
+  const number = settings?.contact?.whatsapp ?? site.contact.whatsapp;
   const [name, setName] = useState("");
   const [service, setService] = useState("Tatuaje");
   const [message, setMessage] = useState("");
@@ -17,7 +18,11 @@ export default function WhatsappForm() {
       (name ? `Soy ${name}.\n` : "") +
       `Me interesa: ${service}.\n` +
       (message ? `\n${message}` : "");
-    window.open(whatsappLink(text), "_blank", "noopener,noreferrer");
+    window.open(
+      buildWhatsappLink(number, text),
+      "_blank",
+      "noopener,noreferrer"
+    );
   }
 
   return (

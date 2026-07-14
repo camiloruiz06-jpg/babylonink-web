@@ -2,7 +2,8 @@ import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import WhatsappForm from "@/components/contact/WhatsappForm";
 import Faq from "@/components/contact/Faq";
-import { site, whatsappLink } from "@/data/site";
+import { buildWhatsappLink } from "@/data/site";
+import { getSiteSettings } from "@/sanity/content";
 import {
   FaWhatsapp,
   FaInstagram,
@@ -15,14 +16,14 @@ export const metadata = {
     "Agenda tu cita en Babylon Ink. Escríbenos por WhatsApp, encuéntranos en Barranquilla y resuelve tus dudas.",
 };
 
-// Mapa: usa el iframe configurado o, si no, una búsqueda en Google Maps
-const mapSrc =
-  site.map.embedSrc ||
-  `https://www.google.com/maps?q=${encodeURIComponent(
-    site.map.query
-  )}&output=embed`;
-
-export default function ContactoPage() {
+export default async function ContactoPage() {
+  const settings = await getSiteSettings();
+  const wa = buildWhatsappLink(settings.contact.whatsapp);
+  const mapSrc =
+    settings.map.embedSrc ||
+    `https://www.google.com/maps?q=${encodeURIComponent(
+      settings.map.query
+    )}&output=embed`;
   return (
     <>
       <PageHeader
@@ -40,14 +41,14 @@ export default function ContactoPage() {
         <div className="grid gap-8 lg:grid-cols-2">
           {/* Formulario a WhatsApp */}
           <Reveal>
-            <WhatsappForm />
+            <WhatsappForm settings={settings} />
           </Reveal>
 
           {/* Info de contacto */}
           <Reveal delay={0.1}>
             <div className="flex h-full flex-col gap-4">
               <a
-                href={whatsappLink()}
+                href={wa}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 rounded-2xl border border-carbon-light bg-carbon p-5 transition-colors hover:border-blood"
@@ -58,13 +59,13 @@ export default function ContactoPage() {
                 <span>
                   <span className="block text-sm text-ash">WhatsApp</span>
                   <span className="block font-semibold text-bone">
-                    {site.contact.phoneDisplay}
+                    {settings.contact.phoneDisplay}
                   </span>
                 </span>
               </a>
 
               <a
-                href={`mailto:${site.contact.email}`}
+                href={`mailto:${settings.contact.email}`}
                 className="flex items-center gap-4 rounded-2xl border border-carbon-light bg-carbon p-5 transition-colors hover:border-blood"
               >
                 <span className="flex h-12 w-12 items-center justify-center rounded-full bg-blood/10 text-blood">
@@ -73,13 +74,13 @@ export default function ContactoPage() {
                 <span>
                   <span className="block text-sm text-ash">Correo</span>
                   <span className="block font-semibold text-bone">
-                    {site.contact.email}
+                    {settings.contact.email}
                   </span>
                 </span>
               </a>
 
               <a
-                href={site.social.instagram}
+                href={settings.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 rounded-2xl border border-carbon-light bg-carbon p-5 transition-colors hover:border-blood"
@@ -90,7 +91,7 @@ export default function ContactoPage() {
                 <span>
                   <span className="block text-sm text-ash">Instagram</span>
                   <span className="block font-semibold text-bone">
-                    {site.social.instagramHandle}
+                    {settings.social.instagramHandle}
                   </span>
                 </span>
               </a>
@@ -102,7 +103,7 @@ export default function ContactoPage() {
                 <span>
                   <span className="block text-sm text-ash">Dirección</span>
                   <span className="block font-semibold text-bone">
-                    {site.contact.address}
+                    {settings.contact.address}
                   </span>
                 </span>
               </div>
@@ -114,7 +115,7 @@ export default function ContactoPage() {
                 <span>
                   <span className="block text-sm text-ash">Horario</span>
                   <span className="block font-semibold text-bone">
-                    {site.contact.hours}
+                    {settings.contact.hours}
                   </span>
                 </span>
               </div>
@@ -149,7 +150,7 @@ export default function ContactoPage() {
             <div className="rounded-3xl border border-carbon-light bg-carbon p-6">
               <h3 className="text-2xl text-bone">Horario</h3>
               <ul className="mt-4 divide-y divide-carbon-light">
-                {site.contact.schedule.map((s) => (
+                {settings.contact.schedule.map((s) => (
                   <li
                     key={s.day}
                     className="flex items-center justify-between py-3 text-sm"

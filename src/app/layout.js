@@ -1,9 +1,8 @@
 import { Anton, Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import WhatsappFloat from "@/components/WhatsappFloat";
+import AppShell from "@/components/AppShell";
 import { site } from "@/data/site";
+import { getSiteSettings } from "@/sanity/content";
 
 // Fuente para titulares gigantes (estilo cartel rock)
 const anton = Anton({
@@ -41,17 +40,15 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const settings = await getSiteSettings();
   return (
     <html
       lang="es"
       className={`${anton.variable} ${inter.variable} h-full`}
     >
       <body className="min-h-full flex flex-col bg-ink text-bone">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <WhatsappFloat />
+        <AppShell settings={settings}>{children}</AppShell>
       </body>
     </html>
   );

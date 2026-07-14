@@ -5,7 +5,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { FiArrowRight } from "react-icons/fi";
 import Link from "next/link";
 import Image from "next/image";
-import { site, whatsappLink } from "@/data/site";
+import { site, buildWhatsappLink } from "@/data/site";
 
 // Animación en cascada (cada hijo aparece un poquito después del anterior)
 const container = {
@@ -17,7 +17,9 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-export default function Hero() {
+export default function Hero({ settings }) {
+  const s = settings ?? site;
+  const wa = buildWhatsappLink(s.contact.whatsapp);
   return (
     <section className="grain relative flex min-h-screen items-center justify-center overflow-hidden bg-ink">
       {/* Resplandor rojo de fondo */}
@@ -48,7 +50,7 @@ export default function Hero() {
           variants={item}
           className="mb-5 text-sm font-semibold uppercase tracking-[0.3em] text-blood"
         >
-          Estudio de Tatuajes & Piercings · {site.city}
+          Estudio de Tatuajes & Piercings · {s.city}
         </motion.p>
 
         {/* Título gigante */}
@@ -65,7 +67,7 @@ export default function Hero() {
           variants={item}
           className="mx-auto mt-6 max-w-xl text-lg text-ash sm:text-xl"
         >
-          {site.slogan}. {site.tagline} y seguimos vigentes: tatuajes,
+          {s.slogan}. {s.tagline} y seguimos vigentes: tatuajes,
           piercings con titanio grado implante y smoke shop.
         </motion.p>
 
@@ -75,7 +77,7 @@ export default function Hero() {
           className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
           <a
-            href={whatsappLink()}
+            href={wa}
             target="_blank"
             rel="noopener noreferrer"
             className="flex w-full items-center justify-center gap-2 rounded-full bg-blood px-8 py-4 font-bold uppercase tracking-wide text-white transition-colors hover:bg-blood-dark sm:w-auto"

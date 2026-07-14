@@ -1,5 +1,6 @@
 import PageHeader from "@/components/PageHeader";
 import TeamShowcase from "@/components/team/TeamShowcase";
+import { getTeam } from "@/sanity/content";
 
 export const metadata = {
   title: "Equipo",
@@ -7,7 +8,8 @@ export const metadata = {
     "Conoce al equipo de artistas y piercers de Babylon Ink en Barranquilla.",
 };
 
-export default function EquipoPage() {
+export default async function EquipoPage() {
+  const team = await getTeam();
   return (
     <>
       <PageHeader
@@ -21,7 +23,7 @@ export default function EquipoPage() {
       />
 
       <section className="mx-auto max-w-7xl px-5 py-16 md:py-20">
-        <TeamShowcase />
+        <TeamShowcase team={team} />
       </section>
     </>
   );

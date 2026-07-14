@@ -4,7 +4,6 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaInstagram } from "react-icons/fa";
-import { team } from "@/data/team";
 
 // Saca las iniciales de un nombre: "Artista Uno" -> "AU"
 function initials(name) {
@@ -39,7 +38,7 @@ function Avatar({ member, big = false }) {
   );
 }
 
-export default function TeamShowcase() {
+export default function TeamShowcase({ team = [] }) {
   const [active, setActive] = useState(0);
   const member = team[active];
 

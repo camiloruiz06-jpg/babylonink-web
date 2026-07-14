@@ -6,7 +6,8 @@ import Ornament from "@/components/Ornament";
 import BodyMap from "@/components/piercings/BodyMap";
 import PriceList from "@/components/piercings/PriceList";
 import JewelryGallery from "@/components/piercings/JewelryGallery";
-import { materials, pricing, jewelryPricing, care } from "@/data/piercings";
+import { materials, care } from "@/data/piercings";
+import { getPrices } from "@/sanity/content";
 import { FaGem, FaWhatsapp } from "react-icons/fa";
 import { whatsappLink } from "@/data/site";
 
@@ -16,7 +17,8 @@ export const metadata = {
     "Piercings por zonas del cuerpo con joyería de titanio grado implante. Precios, joyas y zonas en Babylon Ink, Barranquilla.",
 };
 
-export default function PiercingsPage() {
+export default async function PiercingsPage() {
+  const prices = await getPrices();
   return (
     <>
       <PageHeader
@@ -93,10 +95,10 @@ export default function PiercingsPage() {
 
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             <Reveal>
-              <PriceList title="Piercings" items={pricing} />
+              <PriceList title="Piercings" items={prices.piercings} />
             </Reveal>
             <Reveal delay={0.1}>
-              <PriceList title="Joyas" items={jewelryPricing} />
+              <PriceList title="Joyas" items={prices.joyas} />
             </Reveal>
           </div>
         </div>

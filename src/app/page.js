@@ -4,7 +4,8 @@ import { FiArrowRight } from "react-icons/fi";
 import Hero from "@/components/home/Hero";
 import Marquee from "@/components/Marquee";
 import Reveal from "@/components/Reveal";
-import { site, whatsappLink } from "@/data/site";
+import { buildWhatsappLink } from "@/data/site";
+import { getSiteSettings } from "@/sanity/content";
 
 // Mapa: nombre del ícono (en site.js) -> componente de ícono
 const iconMap = {
@@ -35,13 +36,15 @@ const services = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const settings = await getSiteSettings();
+  const wa = buildWhatsappLink(settings.contact.whatsapp);
   return (
     <>
-      <Hero />
+      <Hero settings={settings} />
 
       {/* Cinta con los diferenciadores */}
-      <Marquee />
+      <Marquee items={settings.claims.map((c) => c.text)} />
 
       {/* SERVICIOS */}
       <section className="mx-auto max-w-7xl px-5 py-20 md:py-28">
@@ -80,7 +83,7 @@ export default function Home() {
       {/* DIFERENCIADORES */}
       <section className="border-y border-carbon-light bg-carbon">
         <div className="mx-auto grid max-w-7xl gap-8 px-5 py-16 sm:grid-cols-2 lg:grid-cols-4">
-          {site.claims.map((claim, i) => {
+          {settings.claims.map((claim, i) => {
             const Icon = iconMap[claim.icon] ?? FaGem;
             return (
               <Reveal key={i} delay={i * 0.08}>
@@ -109,7 +112,7 @@ export default function Home() {
               agendamos tu cita.
             </p>
             <a
-              href={whatsappLink()}
+              href={wa}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-8 inline-flex items-center gap-2 rounded-full bg-blood px-8 py-4 font-bold uppercase tracking-wide text-white transition-colors hover:bg-blood-dark"

@@ -64,8 +64,12 @@ export const site = {
 export const defaultWhatsappMessage =
   "¡Hola Babylon Ink! Me gustaría agendar una cita / recibir más información.";
 
-// Genera el link de WhatsApp con un mensaje opcional
+// Genera el link de WhatsApp con un mensaje opcional (usa el número por defecto)
 export function whatsappLink(message = defaultWhatsappMessage) {
-  const base = `https://wa.me/${site.contact.whatsapp}`;
-  return `${base}?text=${encodeURIComponent(message)}`;
+  return buildWhatsappLink(site.contact.whatsapp, message);
+}
+
+// Igual pero con un número específico (para el contenido que viene de Sanity)
+export function buildWhatsappLink(number, message = defaultWhatsappMessage) {
+  return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
 }

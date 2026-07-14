@@ -7,9 +7,12 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
 import { navLinks } from "@/data/nav";
-import { whatsappLink } from "@/data/site";
+import { site, buildWhatsappLink } from "@/data/site";
 
-export default function Navbar() {
+export default function Navbar({ settings }) {
+  const wa = buildWhatsappLink(
+    settings?.contact?.whatsapp ?? site.contact.whatsapp
+  );
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -72,7 +75,7 @@ export default function Navbar() {
 
         {/* CTA escritorio */}
         <a
-          href={whatsappLink()}
+          href={wa}
           target="_blank"
           rel="noopener noreferrer"
           className="hidden rounded-full bg-blood px-5 py-2 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-blood-dark md:inline-block"
@@ -119,7 +122,7 @@ export default function Navbar() {
             </ul>
             <div className="px-5 pb-6">
               <a
-                href={whatsappLink()}
+                href={wa}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block rounded-full bg-blood px-5 py-3 text-center font-bold uppercase tracking-wide text-white"

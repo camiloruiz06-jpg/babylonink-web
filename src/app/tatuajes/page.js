@@ -5,6 +5,7 @@ import Ornament from "@/components/Ornament";
 import { FaWhatsapp } from "react-icons/fa";
 import { FiArrowRight } from "react-icons/fi";
 import { whatsappLink } from "@/data/site";
+import { getPrices } from "@/sanity/content";
 
 export const metadata = {
   title: "Tatuajes",
@@ -42,7 +43,8 @@ const steps = [
   },
 ];
 
-export default function TatuajesPage() {
+export default async function TatuajesPage() {
+  const { tattooMin } = await getPrices();
   return (
     <>
       <PageHeader
@@ -102,7 +104,7 @@ export default function TatuajesPage() {
                 Tatuajes minimalistas
               </span>
               <span className="font-display text-3xl text-gold">
-                desde $130.000
+                desde {tattooMin}
               </span>
             </div>
             <p className="mt-3 text-sm text-ash">

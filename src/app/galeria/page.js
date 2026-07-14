@@ -1,5 +1,6 @@
 import PageHeader from "@/components/PageHeader";
 import InstagramGrid from "@/components/gallery/InstagramGrid";
+import { getGalleryPosts } from "@/sanity/content";
 
 export const metadata = {
   title: "Galería",
@@ -7,7 +8,8 @@ export const metadata = {
     "Galería de tatuajes, piercings y procedimientos realizados en Babylon Ink, directamente desde Instagram.",
 };
 
-export default function GaleriaPage() {
+export default async function GaleriaPage() {
+  const posts = await getGalleryPosts();
   return (
     <>
       <PageHeader
@@ -21,7 +23,7 @@ export default function GaleriaPage() {
       />
 
       <section className="mx-auto max-w-7xl px-5 py-16 md:py-20">
-        <InstagramGrid />
+        <InstagramGrid posts={posts} />
       </section>
     </>
   );
