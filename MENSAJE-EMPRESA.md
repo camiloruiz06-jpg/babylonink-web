@@ -19,6 +19,10 @@ La página incluye:
 - Un **panel de administración sencillo** para que ustedes mismos puedan cambiar
   textos, precios, fotos y el catálogo, **sin saber de programación**.
 
+Y editar es **muy fácil**: para darles acceso solo necesito su **correo**, y desde
+ahí ustedes cambian lo que quieran o simplemente **pegan los enlaces** de sus
+publicaciones de Instagram para que aparezcan en la galería. Nada complicado 🙂
+
 Me encantaría que le echen un vistazo y me digan con toda confianza qué les parece.
 Si les gusta y les interesa, con gusto podemos hablar para **entregársela y que sea
 de ustedes**: les explico cómo funciona, les paso un **manual de uso** y los
@@ -42,8 +46,10 @@ Quedo muy atento a lo que me digan. ¡Un saludo y gracias por su tiempo! 🖤
 su Instagram. Aún no está publicada; quería mostrársela a ver qué les parece.
 
 Trae panel para que ustedes mismos editen textos, precios y fotos sin saber de
-programación. Si les gusta, con gusto se las explico, les paso un manual y podemos
-hablar para que sea de ustedes. Sin compromiso 🙂
+programación. Editar es facilísimo: solo necesito su **correo** para darles acceso,
+y ustedes solo **pegan los enlaces** de sus publicaciones y listo. Si les gusta, se
+las explico, les paso un manual y podemos hablar para que sea de ustedes. Sin
+compromiso 🙂
 
 ¿Les puedo enviar el enlace para que la vean?
 
