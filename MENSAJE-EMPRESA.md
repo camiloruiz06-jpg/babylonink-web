@@ -4,9 +4,9 @@
 
 Hola, ¿cómo están? 🙌
 
-Mi nombre es **Camilo Ruiz**, soy estudiante de **Ingeniería de Sistemas**. Como
-proyecto de práctica desarrollé una **página web para un negocio real**, y elegí a
-**Babylon Ink** porque me parece un estudio con muchísima identidad y trayectoria.
+Soy estudiante de **Ingeniería de Sistemas**. Como proyecto de práctica desarrollé
+una **página web para un negocio real**, y elegí a **Babylon Ink** porque me parece
+un estudio con muchísima identidad y trayectoria.
 
 Quiero ser totalmente transparente: la hice por iniciativa propia y usando
 **únicamente información pública** de su Instagram y su catálogo (fotos, precios,
@@ -30,7 +30,6 @@ verse aún más profesional.
 
 Quedo muy atento a lo que me digan. ¡Un saludo y gracias por su tiempo! 🖤
 
-**Camilo Ruiz**
 📱 [tu número]  ·  ✉️ [tu correo]
 🔗 Pueden verla aquí: [enlace de la página]
 
@@ -38,7 +37,7 @@ Quedo muy atento a lo que me digan. ¡Un saludo y gracias por su tiempo! 🖤
 
 ## Versión corta (DM de Instagram / WhatsApp)
 
-¡Hola! 🙌 Soy Camilo, estudiante de Ingeniería de Sistemas. Como práctica hice una
+¡Hola! 🙌 Soy estudiante de Ingeniería de Sistemas. Como práctica hice una
 **página web de demostración para Babylon Ink**, usando solo información pública de
 su Instagram. Aún no está publicada; quería mostrársela a ver qué les parece.
 
