@@ -13,7 +13,7 @@ import { site, whatsappLink } from "@/data/site";
 export default function Footer() {
   return (
     <footer className="relative border-t border-carbon-light bg-carbon">
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-4">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 text-center md:grid-cols-4 md:text-left">
         {/* Marca */}
         <div className="md:col-span-1">
           <Image
@@ -21,14 +21,14 @@ export default function Footer() {
             alt="Babylon Ink"
             width={512}
             height={512}
-            className="h-20 w-auto"
+            className="mx-auto h-20 w-auto md:mx-0"
           />
           <p className="mt-3 text-sm text-ash">{site.slogan}</p>
           <p className="mt-1 text-sm text-ash">{site.tagline}</p>
           <p className="mt-1 text-sm text-ash">{site.city}</p>
 
           {/* Redes */}
-          <div className="mt-5 flex gap-3">
+          <div className="mt-5 flex justify-center gap-3 md:justify-start">
             {site.social.instagram && (
               <a
                 href={site.social.instagram}
@@ -95,11 +95,11 @@ export default function Footer() {
         <div>
           <h3 className="mb-4 font-display text-lg text-bone">Contacto</h3>
           <ul className="space-y-3 text-sm text-ash">
-            <li className="flex items-start gap-2">
+            <li className="flex items-start justify-center gap-2 md:justify-start">
               <FiMapPin className="mt-0.5 shrink-0 text-blood" />
               <span>{site.contact.address}</span>
             </li>
-            <li className="flex items-start gap-2">
+            <li className="flex items-start justify-center gap-2 md:justify-start">
               <FiMail className="mt-0.5 shrink-0 text-blood" />
               <a
                 href={`mailto:${site.contact.email}`}
@@ -108,7 +108,7 @@ export default function Footer() {
                 {site.contact.email}
               </a>
             </li>
-            <li className="flex items-start gap-2">
+            <li className="flex items-start justify-center gap-2 md:justify-start">
               <FaWhatsapp className="mt-0.5 shrink-0 text-blood" />
               <a
                 href={whatsappLink()}
@@ -119,7 +119,7 @@ export default function Footer() {
                 {site.contact.phoneDisplay}
               </a>
             </li>
-            <li className="flex items-start gap-2">
+            <li className="flex items-start justify-center gap-2 md:justify-start">
               <FiClock className="mt-0.5 shrink-0 text-blood" />
               <span>{site.contact.hours}</span>
             </li>
